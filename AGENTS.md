@@ -28,3 +28,8 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Application structure
+- Keep shared artist sections in reusable components and give named content pages their own TanStack routes so navigation and page metadata remain independent.
+- Keep artist release data in a browser-safe module with date tests so the presentation uses one consistent source.
+- Keep the artist theme and presentation styles in src/styles.css and serve media through asset pointers to preserve a lightweight repository.

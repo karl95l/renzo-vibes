@@ -1,23 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
-
-// The home route ships no og:image, so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
-export const Route = createFileRoute("/")({
+import { createFileRoute } from '@tanstack/react-router';
+import { Hero, MusicSection, VisualsSection, AboutSection, MerchSection, SocialSection } from '@/components/artist/sections';
+import { artistHead } from '@/lib/artist';
+export const Route = createFileRoute('/')({
+  head: () => artistHead('RenzoVibes | Feel the rhythm. Live the vibe.', 'The digital home of RenzoVibes. Italian Dancehall artist, international award winner. New music, visuals, and worldwide vibes.'),
   component: Index,
 });
-
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
+  return <main><Hero /><div className="culture-strip"><span>ROOTED IN CULTURE</span><span>✳</span><span>DRIVEN BY RHYTHM</span><span>✳</span><span>CONNECTED BY MUSIC</span><span>✳</span><span>RENZOVIBES WORLDWIDE</span></div><MusicSection /><VisualsSection /><AboutSection /><MerchSection /><SocialSection /></main>;
 }
