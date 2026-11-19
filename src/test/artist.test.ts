@@ -8,3 +8,9 @@ describe('Artist release facts', () => {
     expect(releases.find(r => r.title === 'Gambian Kings & Sons')).toMatchObject({ type: 'Album', date: '31.07.2026', isoDate: '2026-07-31' });
   });
 });
+import { tracks } from '@/lib/artist';
+describe('Music previews', () => {
+  it('link to the two official YouTube videos in order', () => {
+    expect(tracks.map(t => t.url)).toEqual(['https://youtu.be/Mw4mxqRhytU', 'https://youtu.be/ivYRhk-Cgys']);
+  });
+});

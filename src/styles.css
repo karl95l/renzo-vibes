@@ -31,11 +31,11 @@
   --background: oklch(0.14 0.002 90);
   --foreground: oklch(0.96 0.005 90);
   --card: oklch(0.18 0.002 90);
-  --primary: oklch(0.77 0.105 83);
-  --primary-foreground: oklch(0.15 0.005 83);
+  --primary: oklch(0.62 0.25 300);
+  --primary-foreground: oklch(0.98 0 0);
   --secondary: oklch(0.2 0.003 90);
   --muted-foreground: oklch(0.67 0.005 90);
-  --accent: oklch(0.26 0.009 83);
+  --accent: oklch(0.26 0.04 300);
   --destructive: oklch(0.65 0.18 30);
   --border: oklch(0.32 0.003 90);
   --hero-ink: oklch(0.09 0.003 90);
@@ -175,3 +175,21 @@
 }
 @media(max-width:370px) { .hero-content h1 { font-size:66px; } .artist-button { padding:0 10px; } .hero-actions { gap:8px; } .social-section h2 { font-size:46px; } }
 @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { animation:none!important; transition:none!important; } }
+.wordmark { align-items:center; gap:12px; }
+.brand-logo { border-radius:50%; box-shadow:0 0 18px -4px var(--primary); }
+.artist-hero .hero-image { object-position:center 35%; }
+@media(min-width:900px) { .artist-hero .hero-image { left:auto; right:0; width:58%; } }
+.track-grid { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+.track-grid .video-image { aspect-ratio:16/9; }
+.play-circle { transition:background .3s,border-color .3s,box-shadow .3s; width:64px; height:64px; }
+.video-item:hover .play-circle { background:var(--primary); border-color:var(--primary); box-shadow:0 0 30px var(--primary); }
+.album-art { background:radial-gradient(circle at 75% 20%, color-mix(in oklab, var(--primary) 35%, transparent), transparent 60%), var(--hero-ink); }
+.album-art.kings { background:radial-gradient(circle at 20% 85%, color-mix(in oklab, var(--primary) 30%, transparent), transparent 60%), var(--hero-ink); }
+.about-photo img { filter:none; object-position:center 30%; }
+.about-photo img.about-badge { position:absolute; top:20px; right:20px; width:84px; height:84px; border-radius:50%; }
+.reveal { animation:text-arrive 1s ease-out both; }
+.merch-image { background:radial-gradient(circle at 50% 45%, color-mix(in oklab, var(--primary) 22%, transparent), transparent 65%); }
+.merch-image img { object-fit:contain; mix-blend-mode:normal; border-radius:4px; }
+.social-links>a { transition:transform .3s,color .3s; }
+.social-links>a:hover { transform:translateY(-3px); }
+@media(max-width:768px) { .track-grid { grid-template-columns:1fr; gap:28px; } .brand-logo { width:38px; height:38px; } }
