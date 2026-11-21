@@ -3,8 +3,16 @@ import { ArrowUpRight, Play, Youtube, Globe, Music2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { releases, channels, tracks } from '@/lib/artist';
 import portrait from '@/assets/renzo-portrait.webp.asset.json';
-import logo from '@/assets/renzovibes-logo.png.asset.json';
+import logo from '@/assets/renzo-vibes-logo.png.asset.json';
 import shirt from '@/assets/pow-pow-shirt.webp.asset.json';
+import hoodie from '@/assets/pow-pow-hoodie.png.asset.json';
+import goatShirt from '@/assets/renzo-goat-shirt.png.asset.json';
+
+const merchItems = [
+  { image: shirt, alt: 'Black Renzo Vibes POW POW T-shirt with purple lightning and Renzo portraits', caption: 'POW POW TEE · COMING SOON' },
+  { image: hoodie, alt: 'Black Renzo Vibes POW POW hoodie with red graphic print', caption: 'POW POW HOODIE · COMING SOON' },
+  { image: goatShirt, alt: 'Black Renzo Goat T-shirt, front with portrait print and POW POW back', caption: 'RENZO GOAT TEE · COMING SOON' },
+];
 
 function Heading({ label, title, children }: { label: string; title: string; children?: React.ReactNode }) {
   return <div className="section-heading"><div><p className="eyebrow"><span />{label}</p><h2>{title}</h2></div>{children}</div>;
@@ -33,7 +41,7 @@ export function AboutSection({ standalone = false }: { standalone?: boolean }) {
   return <section className={`artist-section about-section ${standalone ? 'standalone' : ''}`}><div className="section-inner about-grid"><div className="about-photo reveal"><img src={portrait.url} alt="Portrait of Renzo" loading="lazy" /><img className="about-badge" src={logo.url} alt="" aria-hidden="true" loading="lazy" /><span className="photo-caption">ITALIAN DANCEHALL. GLOBAL VIBES.</span></div><div className="about-copy reveal"><p className="eyebrow"><span />ITALIAN DANCEHALL. GLOBAL VIBES.</p><h2>MEET<br /><span>RENZO.</span></h2><p className="signature">Welcome, it's Renzo to the globe!</p><p>Renzo Vibes is an Italian Dancehall artist and international award winner, bringing his own energy and sound to the world.</p><p>Driven by a love for music and culture, he explores a new wave of Afrobeats, Dancehall, Amapiano and Hip Hop.</p><p>From the Gambian-inspired project ‘Gambian Prince’ to his album ‘Gambian Kings & Sons’, Renzo continues to share his sound, his journey and his vibe with the globe.</p><p className="signature">Always new songs. Always new energy.</p><p>Much love straight out to ya!<br />Your Renzo. Pow pow pow.</p></div></div></section>;
 }
 export function MerchSection({ standalone = false }: { standalone?: boolean }) {
-  return <section className={`artist-section merch-section ${standalone ? 'standalone' : ''}`}><div className="section-inner merch-grid"><div><p className="eyebrow"><span />POW POW — THE FIRST DROP.</p><h2>WEAR<br />THE VIBE<span className="gold-text">.</span></h2><p className="merch-subtitle">Renzo Vibes merch is on the way.</p><p className="coming-soon">COMING SOON. <span>↗</span></p><Button asChild variant="artistOutline"><Link to="/connect">STAY TUNED <ArrowUpRight /></Link></Button></div><figure className="merch-image"><img src={shirt.url} alt="Black Renzo Vibes POW POW T-shirt with purple lightning and Renzo portraits" loading="lazy" /><figcaption>POW POW TEE · COMING SOON</figcaption></figure></div></section>;
+  return <section className={`artist-section merch-section ${standalone ? 'standalone' : ''}`}><div className="section-inner merch-grid"><div><p className="eyebrow"><span />POW POW — THE FIRST DROP.</p><h2>WEAR<br />THE VIBE<span className="gold-text">.</span></h2><p className="merch-subtitle">Renzo Vibes merch is on the way.</p><p className="coming-soon">COMING SOON. <span>↗</span></p><Button asChild variant="artistOutline"><Link to="/connect">STAY TUNED <ArrowUpRight /></Link></Button></div><div className="merch-items">{merchItems.map(item => <figure className="merch-image" key={item.caption}><img src={item.image.url} alt={item.alt} loading="lazy" /><figcaption>{item.caption}</figcaption></figure>)}</div></div></section>;
 }
 export function SocialSection({ standalone = false }: { standalone?: boolean }) {
   return <section className={`artist-section social-section ${standalone ? 'standalone' : ''}`}><div className="section-inner"><p className="eyebrow"><span />KEEP THE CONNECTION</p><h2>FOLLOW THE JOURNEY<span className="gold-text">.</span></h2><div className="social-bottom"><p>Stay connected.<br />New music, new visuals, new vibes.</p><div className="social-links"><a href={channels.tiktok} target="_blank" rel="noopener noreferrer"><Music2 /><span>TikTok</span><ArrowUpRight /></a><a href={channels.youtube} target="_blank" rel="noopener noreferrer"><Youtube /><span>YouTube</span><ArrowUpRight /></a><a href={channels.website} target="_blank" rel="noopener noreferrer"><Globe /><span>Official website</span><ArrowUpRight /></a></div></div></div></section>;

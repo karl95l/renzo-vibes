@@ -3,7 +3,7 @@ import { Link } from '@tanstack/react-router';
 import { ArrowUp, ArrowUpRight, Menu, X, Youtube, Music2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { channels } from '@/lib/artist';
-import logo from '@/assets/renzovibes-logo.png.asset.json';
+import logo from '@/assets/renzo-vibes-logo.png.asset.json';
 const links = [{to:'/music',label:'MUSIC'},{to:'/visuals',label:'VISUALS'},{to:'/about',label:'ABOUT'},{to:'/merch',label:'MERCH'},{to:'/connect',label:'CONNECT'}] as const;
 function Logo({ size = 46 }: { size?: number }) { return <img src={logo.url} alt="Renzo Vibes logo" width={size} height={size} className="brand-logo" />; }
 export function ArtistHeader() {
